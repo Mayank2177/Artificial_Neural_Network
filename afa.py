@@ -1,3 +1,4 @@
+#importing necessary libraries
 import numpy as np
 import pandas as pd
 import torch
@@ -9,6 +10,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 
+#importing models
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
