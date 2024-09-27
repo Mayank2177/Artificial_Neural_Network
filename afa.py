@@ -16,11 +16,14 @@ from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
 
+#loading csv file
 data = pd.read_csv("/content/drive/MyDrive/data.csv")
 print(data.head())
 
+#removing missing values
 data.drop(columns=['Unnamed: 32'], inplace=True)
 data.info()
+#checking for if there remaining missing values
 data.isnull().sum()
 data['diagnosis'].value_counts()
 
@@ -29,9 +32,11 @@ X = data['radius_mean']
 Y = data['diagnosis']
 
 print(X)
+#replacing Boolean values with int value 
 data.replace(('B','M'), (0,1), inplace=True)
 print(Y)
 
+#training the neural network 
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, stratify = Y, random_state=3)
 print(X.shape, X_train.shape, X_test.shape)
 X = np.asarray(X)
@@ -71,6 +76,8 @@ def compare_models_cross_validation():
 
 compare_models_cross_validation()
 
+#using cross validation method
+#using linear regression 
 cv_score_lr = cross_val_score(LogisticRegression(max_iter=1000), X, Y, cv=5)
 
 print(cv_score_lr)
@@ -83,6 +90,7 @@ mean_accuracy_lr = round(mean_accuracy_lr, 2)
 
 print(mean_accuracy_lr)
 
+#using svc
 cv_score_svc = cross_val_score(SVC(kernel='linear'), X, Y, cv=5)
 
 print(cv_score_svc)
@@ -95,7 +103,7 @@ mean_accuracy_svc = round(mean_accuracy_svc, 2)
 
 print(mean_accuracy_svc)
 
-                                #KNeighboursclassifier
+#using Kneighbourclassifier                               #KNeighboursclassifier
 cv_score_knc = cross_val_score(KNeighborsClassifier, X, Y, cv=5)
 
 print(cv_score_knc)
@@ -108,18 +116,19 @@ mean_accuracy_knc = round(mean_accuracy_knc, 2)
 
 print(mean_accuracy_knc)
 
-cv_score_kFc = cross_val_score(RandomForestClassifier(random_state=0), X, Y, cv=5)
+cv_score_rFc = cross_val_score(RandomForestClassifier(random_state=0), X, Y, cv=5)
 
-print(cv_score_kFc)
+print(cv_score_rFc)
 
-mean_accuracy_kFc = sum(cv_score_kFc)/len(cv_score_kFc)
+mean_accuracy_rFc = sum(cv_score_rFc)/len(cv_score_kFc)
 
-mean_accuracy_kFc = mean_accuracy_kFc*100
+mean_accuracy_rFc = mean_accuracy_rFc*100
 
-mean_accuracy_kFc = round(mean_accuracy_kFc, 2)
+mean_accuracy_rFc = round(mean_accuracy_rFc, 2)
 
-print(mean_accuracy_kFc)
+print(mean_accuracy_rFc)
 
+#Describing accuracy, precision, loss and F1 score
 data.describe()
 
 from sklearn.metrics import mean_absolute_error
