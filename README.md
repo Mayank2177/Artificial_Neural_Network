@@ -23,9 +23,9 @@ Softmax: This is used to convert the network's output into probabilities, but si
 softmax, it can be removed for binary classification tasks.
 
 ## Components:
-Input to Hidden Layer (fc1): Maps the input features to a hidden layer.
-Hidden to Hidden Layer (fc2): Models deeper representations.
-Hidden to Output Layer (fc3): Outputs the raw scores (logits) for each class.
-Custom Activation: Applies the learnable linear transformation k1 * x + k2 on the outputs of each layer.
-Softmax: Converts the logits into probabilities for each class.
+* Input to Hidden Layer (fc1): Maps the input features to a hidden layer.
+* Hidden to Hidden Layer (fc2): Models deeper representations.
+* Hidden to Output Layer (fc3): Outputs the raw scores (logits) for each class.
+* Custom Activation: Applies the learnable linear transformation k1 * x + k2 on the outputs of each layer.
+* Softmax: Converts the logits into probabilities for each class.
 
