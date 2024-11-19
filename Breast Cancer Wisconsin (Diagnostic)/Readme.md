@@ -1,7 +1,7 @@
-### Unveiling the complexities of dataset and Preprocessing needed
+# Unveiling the complexities of dataset and Preprocessing needed
 
 ## Data Difficulty
-# Missing Data in Bare Nuclei  Column
+### Missing Data in Bare Nuclei  Column
 - Non-Numeric Values for Critical Features
 - Bias in Missing Data
 - Limited Features
